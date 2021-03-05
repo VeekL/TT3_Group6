@@ -16,7 +16,7 @@ import { TokenServiceService } from '../services/token-service.service';
 export class ViewPricingComponent implements OnInit {
 
 currentPrice:any;
-
+currentDate:any;
 
   constructor()
   {
@@ -26,6 +26,9 @@ currentPrice:any;
       "assetSymbol": "TTK",
       "timestamp": 1614916200
     };
+
+    this.currentDate = Date(this.currentPrice.timestamp * 1000);
+    console.log(this.currentDate);
   
   };
 
