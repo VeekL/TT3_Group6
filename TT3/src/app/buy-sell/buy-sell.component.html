@@ -1,4 +1,4 @@
-<div class="container">
+<div class="center">
     <h1>Trade Assets</h1>
     <div>
       <tr>
@@ -7,14 +7,14 @@
         <th>Last Updated</th>
       </tr>
       <tr>
-        <td>{{currentPrice.assetSymbol}}</td>
-        <td>{{currentPrice.price}}</td>
-        <td>{{currentPrice.timestamp*1000 | date: 'dd/MM/yyyy hh:mm:ss' }} </td>
+        <td>{{currentPrice?.assetSymbol}}</td>
+        <td>{{currentPrice?.price}}</td>
+        <td>{{currentPrice?.timestamp*1000 | date: 'dd/MM/yyyy hh:mm:ss' }} </td>
       </tr>
     </div>
     
-    <div class="Trade Assets">
-          
+    <div class="Trade Assets" style="border:1px solid rgb(44, 19, 19);margin-top:50px">
+      <h2>Market Buy</h2>
       <form [formGroup]="buyForm" (ngSubmit)="buy()">
         <h2>Buy</h2>
         <input type="text" formControlName="buyAmount" class="form-control" placeholder="Buy Amount">
@@ -31,7 +31,7 @@
       </form>
     </div>
     
-    <div>
+    <div style="border:1px solid black">
       <p>Asset Balance: {{balance?.assetBalance}} TTK</p>
       <p>Cash Balance: ${{balance?.cashBalance}} </p>
     </div>

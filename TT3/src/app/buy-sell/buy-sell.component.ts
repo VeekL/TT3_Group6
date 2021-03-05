@@ -100,7 +100,7 @@ export class BuySellComponent implements OnInit {
 
   updateInfo()
   {
-    const source = interval(10000); //every 10 sec
+    const source = interval(15000); //every 10 sec
     this.sub = source.subscribe(()=>
     {this.getInfo()});
   };
@@ -108,8 +108,9 @@ export class BuySellComponent implements OnInit {
   getInfo()
   {
     this.tokenService.viewPricing().subscribe((response)=>{
-    this.currentPrice = response;
-    this.currentDate = response.timestamp;
+      this.currentPrice = response;
+      this.currentDate = response.timestamp;
+      console.log('Update',this.currentPrice,this.currentDate);
     });
   }
 }

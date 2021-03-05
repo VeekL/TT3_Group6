@@ -32,7 +32,7 @@ sub: Subscription;
 
   updateInfo()
   {
-    const source = interval(10000); //every 1 sec
+    const source = interval(8000); //every 1 sec
     this.sub = source.subscribe(()=>
     {this.getInfo()});
   };
