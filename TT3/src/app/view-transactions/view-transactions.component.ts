@@ -20,7 +20,7 @@ export class ViewTransactionsComponent implements OnInit {
     this.tokenService.viewTransactions({ accountKey: localStorage.getItem('accountKey')}).subscribe(
       (response) => {
         this.newData = response;
-        console.log(response);
+        this.newData.sort((x,y)=>y.timestamp-x.timestamp);
       }
     );
   }

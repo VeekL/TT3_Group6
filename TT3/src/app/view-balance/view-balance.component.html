@@ -1,13 +1,13 @@
-<p>
-  view-balance works!
-</p>
-<table border="1">
-  <tr>
-    <td>Asset Balance</td>
-    <td>Cash Balance</td>
-  </tr>
-  <tr>
-    <td>{{data.assetBalance}}</td>
-    <td>{{data.cashBalance}}</td>
-  </tr>
-</table>
+<div class="center" style="border:none;font-size:30px">
+    <table border="1">
+        <tr>
+          <td>Asset Balance</td>
+          <td>Cash Balance</td>
+        </tr>
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        <tr>
+          <td>{{data.assetBalance}}</td>
+          <td>{{data.cashBalance}}</td>
+        </tr>
+      </table>
+</div>
