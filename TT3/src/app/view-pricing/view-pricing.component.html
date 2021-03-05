@@ -3,5 +3,6 @@
     <p>assetSymbol:{{ currentPrice && currentPrice.assetSymbol}}</p>
     <p>Price: {{ currentPrice && currentPrice.price}}</p>
     <!-- <p>Timestamp: {{currentPrice.timestamp}}</p> -->
-    <p>Last Updated: {{currentPrice && currentPrice.timestamp*1000 | date: 'dd/MM/yyyy hh:mm:ss'}}</p>
+    <!-- <p>Last Updated: {{currentPrice && currentPrice.timestamp*1000 | date: 'dd/MM/yyyy hh:mm:ss'}}</p> -->
+    <p>Last Updated: {{currentPrice && currentDate}}</p>
 </div> 
