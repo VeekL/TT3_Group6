@@ -19,13 +19,13 @@ export class TokenServiceService {
 
   url = 'https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/';
 
-  loginUrl = this.url + '/login'; //POST
-  viewBalanceUrl = this.url + '/balance'; //POST
-  viewPricingUrl = this.url + '/pricing/current'; //POST
-  viewHistoryUrl = this.url + '/pricing/historical'; //POST
-  viewTransactionsUrl = this.url + '/transactions/view'; //POST
-  buySellUrl = this.url + '/transactions/add'; //POST
 
+  loginUrl=this.url+'login'; //POST
+  viewBalanceUrl= this.url+'balance'; //POST
+  viewPricingUrl= this.url+'pricing/current'; //POST
+  viewHistoryUrl= this.url+'pricing/historical'; //POST
+  viewTransactionsUrl = this.url+'transactions/view'; //POST
+  buySellUrl = this.url+'transactions/add'; //POST
 
   constructor(private http: HttpClient) { }
 
@@ -33,8 +33,9 @@ export class TokenServiceService {
     return this.http.post<LoginResponse>(this.loginUrl, loginDetails, { headers: this.headers }); //login details, username,password, 
   }
 
-  viewBalance(accountKey: ViewBalanceDetails): Observable<ViewBalanceResponse> {
-    return this.http.post<ViewBalanceResponse>(this.viewBalanceUrl, accountKey, { headers: this.headers }); //accountKey
+
+  viewBalance(accountKey):Observable<ViewBalanceResponse>{
+    return this.http.post<ViewBalanceResponse>(this.viewBalanceUrl,accountKey,{headers:this.headers}); //accountKey
   }
 
   viewPricing(): Observable<ViewPricingResponse> {
@@ -45,8 +46,9 @@ export class TokenServiceService {
     return this.http.post<HistoricalPricingResponse>(this.viewHistoryUrl, '', { headers: this.headers }); // Empty Body
   }
 
-  viewTransactions(accountKey: TransactionDetails): Observable<TransactionResponse> {
-    return this.http.post<TransactionResponse>(this.viewTransactionsUrl, accountKey, { headers: this.headers }); //accountKey
+
+  viewTransactions(accountKey):Observable<TransactionResponse>{
+    return this.http.post<TransactionResponse>(this.viewTransactionsUrl,accountKey,{headers:this.headers}); //accountKey
   }
 
   buyOrSell(transactionType: BuyOrSellDetails): Observable<any> {

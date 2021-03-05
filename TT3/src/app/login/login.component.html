@@ -1,19 +1,19 @@
-<div class="container">
-      
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
-        <h1>Login</h1>
-        <input type="text" formControlName="username" class="form-control" placeholder="Username">
-        <br>
-        <input type="password" formControlName="password" class="form-control" placeholder="Password">
-        <br>
-        <button>Submit</button>
-      </form>
-      <div *ngIf="loginResponse">
-        <p>Name: {{loginResponse.firstName}}</p>
-        <p>Last Name: {{loginResponse.lastName}}</p>
-        <p>NRIC: {{loginResponse.nric}}</p>
-        <p>Phone Number: {{loginResponse.phoneNumber}}</p>
-        <p>Address: {{loginResponse.address}}</p>
-        <p>Email: {{loginResponse.email}}</p>
-      </div>
+<div *ngIf="!savedDetails" class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <h1>Login</h1>
+      <input type="text" formControlName="username" class="form-control" placeholder="Username">
+      <br>
+      <input type="password" formControlName="password" class="form-control" placeholder="Password">
+      <br>
+      <button>Submit</button>
+    </form>
+</div>
+
+<div *ngIf="savedDetails">
+    <p>Name: {{savedDetails.firstName}}</p>
+    <p>Last Name: {{savedDetails.lastName}}</p>
+    <p>NRIC: {{savedDetails.nric}}</p>
+    <p>Phone Number: {{savedDetails.phoneNumber}}</p>
+    <p>Address: {{savedDetails.address}}</p>
+    <p>Email: {{savedDetails.email}}</p>
 </div>
