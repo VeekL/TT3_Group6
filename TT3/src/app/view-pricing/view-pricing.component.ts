@@ -12,9 +12,6 @@ import { Observable, interval, Subscription} from 'rxjs';
   styleUrls: ['./view-pricing.component.css']
 })
 
-
-
-
 export class ViewPricingComponent implements OnInit {
 
 currentPrice:any;
@@ -27,7 +24,6 @@ sub: Subscription;
 
 
   ngOnInit() {
-    this.getInfo();
     this.updateInfo();
     };
     
@@ -35,7 +31,7 @@ sub: Subscription;
 
   updateInfo()
   {
-    const source = interval(1000); //every 1 sec
+    const source = interval(100); //every 1 sec
     this.sub = source.subscribe(()=>
     {this.getInfo()});
   };

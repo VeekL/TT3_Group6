@@ -9,16 +9,17 @@ import { TokenServiceService } from '../services/token-service.service';
 
 
 export class HistoricalPricingComponent implements OnInit {
-
+  loading=false;
   data: any;
 
   constructor(private tokenService: TokenServiceService) { }
 
   ngOnInit() {
+    this.loading=true;
     this.tokenService.viewHistoricalPricing().subscribe(
       response => {
         this.data = response;
-        console.log(this.data);
+        this.loading=false;
       }
     );
   }
