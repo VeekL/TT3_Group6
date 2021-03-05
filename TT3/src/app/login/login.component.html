@@ -1,34 +1,19 @@
-<!-- <link rel="stylesheet" href="login.component.css">
-
-<body>
-  
-  <div class="grid">
-
-    <form action="test.php" method="POST" class="form login">
-	
-      <div class="form_field">
-		<hr>
-          <span class="hidden">Username</span></label>
-        <input autocomplete="username" id="login_username" type="text" name="username" class="form_input" placeholder="Username" required>
+<div class="container">
+      
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <h1>Login</h1>
+        <input type="text" formControlName="username" class="form-control" placeholder="Username">
+        <br>
+        <input type="password" formControlName="password" class="form-control" placeholder="Password">
+        <br>
+        <button>Submit</button>
+      </form>
+      <div *ngIf="loginResponse">
+        <p>Name: {{loginResponse.firstName}}</p>
+        <p>Last Name: {{loginResponse.lastName}}</p>
+        <p>NRIC: {{loginResponse.nric}}</p>
+        <p>Phone Number: {{loginResponse.phoneNumber}}</p>
+        <p>Address: {{loginResponse.address}}</p>
+        <p>Email: {{loginResponse.email}}</p>
       </div>
-	  
-	  <br>
-
-      <div class="form_field">
-          <span class="hidden">Password</span></label>
-        <input id="login_password" type="password" name="password" class="form__input" placeholder="Password" required>
-      </div>
-	  
-	  <br>
-
-      <div class="form_field">
-        <input type="submit" value="Sign In">
-      </div>
-	  
-    </form>
-
-    <p class="text--center">Not a member? <a href="#">Sign up now</a></p>
-
-  </div>
-  
-</body> -->
+</div>
