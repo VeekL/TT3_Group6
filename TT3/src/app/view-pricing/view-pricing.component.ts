@@ -2,6 +2,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { getMatIconNameNotFoundError } from '@angular/material';
 import { TokenServiceService } from '../services/token-service.service';
+import { Observable, interval, Subscription} from 'rxjs';
 
 
 
@@ -17,19 +18,39 @@ import { TokenServiceService } from '../services/token-service.service';
 export class ViewPricingComponent implements OnInit {
 
 currentPrice:any;
-currentTime:any;
-
+currentDate:any;
+testPrice:any;
+sub: Subscription;
   constructor(private tokenService:TokenServiceService)
-  {};
+  {
+  };
 
 
   ngOnInit() {
     this.getInfo();
-  };
+    this.updateInfo();
+    };
     
-  getInfo(){
-    this.tokenService.viewPricing().subscribe(response=>{
-      this.currentPrice = response;
-      });
+
+
+  updateInfo()
+  {
+    const source = interval(1000); //every 1 sec
+    this.sub = source.subscribe(()=>
+    {this.getInfo()};
+    )
+
+  };
+
+  getInfo()
+  {
+    this.tokenService.viewPricing().subscribe((response)=>{
+    this.currentPrice = response;
+    this.currentDate = Date(this.currentPrice.timestamp * 1000); 
+    };
   }
+
+  
 }
+
+

@@ -1,7 +1,7 @@
 <h2>View Pricing</h2>
 <div>
-    <p>assetSymbol:{{currentPrice.assetSymbol}}</p>
-    <p>Price: {{currentPrice.price}}</p>
+    <p>assetSymbol:{{ currentPrice && currentPrice.assetSymbol}}</p>
+    <p>Price: {{ currentPrice && currentPrice.price}}</p>
     <!-- <p>Timestamp: {{currentPrice.timestamp}}</p> -->
-    <p>Last Updated: {{currentPrice.timestamp}}</p>
+    <p>Last Updated: {{ currentPrice && currentDate}}</p>
 </div> 
