@@ -1,6 +1,6 @@
 <div class="center">
     <h1>Trade Assets</h1>
-    <div>
+    <div class="center">
       <tr>
         <th>Asset Symbol</th>
         <th>Price</th>
@@ -13,25 +13,27 @@
       </tr>
     </div>
     
-    <div class="Trade Assets" style="border:1px solid rgb(44, 19, 19);margin-top:50px">
+    <div class="Trade Assets" style="margin-top:50px">
       <h2>Market Buy</h2>
-      <form [formGroup]="buyForm" (ngSubmit)="buy()">
-        <h2>Buy</h2>
-        <input type="text" formControlName="buyAmount" class="form-control" placeholder="Buy Amount">
-        <br>
-        <button>Submit</button>
-      </form>
-    
-      <form [formGroup]="sellForm" (ngSubmit)="sell()">
-        <h2>Sell</h2>
-        <input type="text" formControlName="sellAmount" class="form-control" placeholder="Sell Amount">
-        <br>
-    
-        <button>Submit</button>
-      </form>
+      <div class="center">
+          <form [formGroup]="buyForm" (ngSubmit)="buy()">
+              <h2>Buy</h2>
+              <input type="text" formControlName="buyAmount" class="form-control" placeholder="Buy Amount">
+              <br>
+              <button>Submit</button>
+            </form>
+          
+            <form [formGroup]="sellForm" (ngSubmit)="sell()">
+              <h2>Sell</h2>
+              <input type="text" formControlName="sellAmount" class="form-control" placeholder="Sell Amount">
+              <br>
+          
+              <button>Submit</button>
+            </form>
+      </div>
     </div>
     
-    <div style="border:1px solid black">
+    <div style="margin-top:20px" class="center">
       <p>Asset Balance: {{balance?.assetBalance}} TTK</p>
       <p>Cash Balance: ${{balance?.cashBalance}} </p>
     </div>

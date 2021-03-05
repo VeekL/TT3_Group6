@@ -31,7 +31,6 @@ export class HistoricalPricingComponent implements OnInit {
           this.priceArr.push(response[curPrice].price);
           this.timeStampArr.push(s);
         }
-        console.log(response);
       }
     );
     this.linechart = new Chart('canvas', {
