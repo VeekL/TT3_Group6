@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { getMatIconFailedToSanitizeLiteralError } from '@angular/material';
 import { TokenServiceService } from '../services/token-service.service';
 import { TransactionDetails } from '../services/types/transactionDetails';
+import Chart from 'chart.js';
 
 @Component({
   selector: 'app-view-transactions',
