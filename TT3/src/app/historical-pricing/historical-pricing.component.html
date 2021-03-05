@@ -4,6 +4,7 @@
     <td>Asset Symbol</td>
     <td>TimeStamp</td>
   </tr>
+  <span *ngIf="loading">Loading...</span>
   <tr *ngFor="let item of data">
     <td>{{item.price}}</td>
     <td>{{item.assetSymbol}}</td>
