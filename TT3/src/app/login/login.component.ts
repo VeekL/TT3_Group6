@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenServiceService } from '../services/token-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginDetails } from '../services/types/loginDetails';
-
+import { LoginResponse } from '../services/types/loginResponse';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,17 +12,14 @@ export class LoginComponent implements OnInit {
 
   loginForm:FormGroup;
   loginDetails:LoginDetails;
+  loginResponse:LoginResponse;
 
-
-  userLogin={
-    "username":"Group6",
-    "password":"mnlBi9C5lHzPiMN"
-  }
-  constructor(private tokenService:TokenServiceService) { }
+  constructor(private tokenService:TokenServiceService,private formBuilder:FormBuilder) { }
 
   ngOnInit() {
-    this.tokenService.userLogin(this.userLogin).subscribe(response=>{
-      console.log(response);
+    this.loginForm=this.formBuilder.group({
+      username:[null,[Validators.required,Validators.minLength(4)]],
+      password:[null,[Validators.required,Validators.minLength(6)]]
     })
   }
 
@@ -36,7 +33,7 @@ export class LoginComponent implements OnInit {
       "password":this.f.password.value
     }
     this.tokenService.userLogin(this.loginDetails).subscribe(response=>{
-      console.log(response);
+      this.loginResponse=response;
     })
   }
 }
