@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of , throwError } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse,  } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse, } from '@angular/common/http';
 import { LoginDetails } from './types/loginDetails';
 import { LoginResponse } from './types/loginResponse';
 import { ViewBalanceDetails } from './types/viewBalanceDetails';
@@ -15,42 +15,42 @@ import { BuyOrSellDetails } from './types/buyOrSellDetails';
   providedIn: 'root'
 })
 export class TokenServiceService {
-  headers = new HttpHeaders({'x-api-key':'QQCQyzK1Qr2DzI1CYF192334KzjSsOq19Bp7g7ZQ'})
+  headers = new HttpHeaders({ 'x-api-key': 'QQCQyzK1Qr2DzI1CYF192334KzjSsOq19Bp7g7ZQ' })
 
-  url='https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/';
+  url = 'https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/';
 
-  loginUrl=this.url+'/login'; //POST
-  viewBalanceUrl= this.url+'/balance'; //POST
-  viewPricingUrl= this.url+'/pricing/current'; //POST
-  viewHistoryUrl= this.url+'/pricing/historical'; //POST
-  viewTransactionsUrl = this.url+'/transactions/view'; //POST
-  buySellUrl = this.url+'/transactions/add'; //POST
+  loginUrl = this.url + '/login'; //POST
+  viewBalanceUrl = this.url + '/balance'; //POST
+  viewPricingUrl = this.url + '/pricing/current'; //POST
+  viewHistoryUrl = this.url + '/pricing/historical'; //POST
+  viewTransactionsUrl = this.url + '/transactions/view'; //POST
+  buySellUrl = this.url + '/transactions/add'; //POST
 
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  userLogin(loginDetails:LoginDetails):Observable<LoginResponse>{
-    return this.http.post<LoginResponse>(this.loginUrl,loginDetails,{headers:this.headers}); //login details, username,password, 
+  userLogin(loginDetails: LoginDetails): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(this.loginUrl, loginDetails, { headers: this.headers }); //login details, username,password, 
   }
 
-  viewBalance(accountKey:ViewBalanceDetails):Observable<ViewBalanceResponse>{
-    return this.http.post<ViewBalanceResponse>(this.viewBalanceUrl,accountKey,{headers:this.headers}); //accountKey
+  viewBalance(accountKey: ViewBalanceDetails): Observable<ViewBalanceResponse> {
+    return this.http.post<ViewBalanceResponse>(this.viewBalanceUrl, accountKey, { headers: this.headers }); //accountKey
   }
 
-  viewPricing():Observable<ViewPricingResponse>{
-    return this.http.post<ViewPricingResponse>(this.viewPricingUrl,'',{headers:this.headers}); //Empty Body
+  viewPricing(): Observable<ViewPricingResponse> {
+    return this.http.post<ViewPricingResponse>(this.viewPricingUrl, '', { headers: this.headers }); //Empty Body
   }
 
-  viewHistoricalPricing():Observable<HistoricalPricingResponse>{
-    return this.http.post<HistoricalPricingResponse>(this.viewHistoryUrl,'',{headers:this.headers}); // Empty Body
+  viewHistoricalPricing(): Observable<HistoricalPricingResponse> {
+    return this.http.post<HistoricalPricingResponse>(this.viewHistoryUrl, '', { headers: this.headers }); // Empty Body
   }
 
-  viewTransactions(accountKey:TransactionDetails):Observable<TransactionResponse>{
-    return this.http.post<TransactionResponse>(this.viewTransactionsUrl,accountKey,{headers:this.headers}); //accountKey
+  viewTransactions(accountKey: TransactionDetails): Observable<TransactionResponse> {
+    return this.http.post<TransactionResponse>(this.viewTransactionsUrl, accountKey, { headers: this.headers }); //accountKey
   }
 
-  buyOrSell(transactionType:BuyOrSellDetails):Observable<any>{
-    return this.http.post<any>(this.buySellUrl,transactionType,{headers:this.headers}); // accountKey, orderType,assetAmount
+  buyOrSell(transactionType: BuyOrSellDetails): Observable<any> {
+    return this.http.post<any>(this.buySellUrl, transactionType, { headers: this.headers }); // accountKey, orderType,assetAmount
   }
 
 }

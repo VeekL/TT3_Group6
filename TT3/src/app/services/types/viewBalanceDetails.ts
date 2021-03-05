@@ -1,3 +1,3 @@
 export class ViewBalanceDetails {
-    "accountKey":string;
+    "accountKey": string;
 }
