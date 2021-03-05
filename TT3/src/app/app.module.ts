@@ -10,6 +10,7 @@ import { HistoricalPricingComponent } from './historical-pricing/historical-pric
 import { ViewTransactionsComponent } from './view-transactions/view-transactions.component';
 import { BuySellComponent } from './buy-sell/buy-sell.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     HistoricalPricingComponent,
     ViewTransactionsComponent,
     BuySellComponent,
-    NavbarComponent
+    NavbarComponent,
+    UserinfoComponent
   ],
   imports: [
     BrowserModule,

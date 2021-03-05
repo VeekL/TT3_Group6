@@ -6,6 +6,7 @@ import { ViewPricingComponent } from './view-pricing/view-pricing.component';
 import { ViewTransactionsComponent } from './view-transactions/view-transactions.component';
 import { HistoricalPricingComponent } from './historical-pricing/historical-pricing.component';
 import { BuySellComponent } from './buy-sell/buy-sell.component';
+import { UserinfoComponent } from './userinfo/userinfo.component';
 
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
@@ -19,6 +20,7 @@ const routes:Routes=[
   {path:'viewtransactions',component:ViewTransactionsComponent},
   {path:'buysell',component:BuySellComponent},
   {path:'history',component:HistoricalPricingComponent},
+  {path:'userinfo',component:UserinfoComponent},
   {
     path: '**',
     redirectTo: ''
