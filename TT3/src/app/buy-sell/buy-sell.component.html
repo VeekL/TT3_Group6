@@ -1,3 +1,26 @@
-<p>
-  buy-sell works!
-</p>
+<h1>Trade Assets</h1>
+
+<div class="Trade Assets">
+      
+  <form [formGroup]="tradeForm" (ngSubmit)="buy()">
+    <h2>Buy</h2>
+    <input type="text" formControlName="buyamount" class="form-control" placeholder="Buy Amount">
+    <br>
+    <input type="text" formControlName="buyprice" class="form-control" placeholder="Buy Price">
+    <br>
+    <button>Submit</button>
+  </form>
+
+  <form [formGroup]="tradeForm" (ngSubmit)="sell()">
+    <h2>Sell</h2>
+    <input type="text" formControlName="sellamount" class="form-control" placeholder="Sell Amount">
+    <br>
+    <input type="text" formControlName="sellprice" class="form-control" placeholder="Sell Price">
+    <br>
+    <button>Submit</button>
+  </form>
+
+  <div *ngIf="tradeResponse">
+    
+
+  </div>
