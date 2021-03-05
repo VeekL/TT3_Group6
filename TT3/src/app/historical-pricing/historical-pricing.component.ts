@@ -14,7 +14,7 @@ export class HistoricalPricingComponent implements OnInit {
   data: any;
 
   priceArr = [];
-  assetsymbols: [];
+  assetsymbols=[];
   timeStampArr = [];
   linechart = [];
 

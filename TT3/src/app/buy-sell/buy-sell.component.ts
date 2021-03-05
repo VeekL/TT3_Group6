@@ -93,6 +93,7 @@ export class BuySellComponent implements OnInit {
     this.tokenService.viewTransactions({ accountKey: localStorage.getItem('accountKey')}).subscribe(
       (response) => {
         this.newData = response;
+        this.newData.sort((x,y)=>y.timestamp-x.timestamp);
       }
     );
   }
