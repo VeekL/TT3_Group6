@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { getMatIconFailedToSanitizeLiteralError } from '@angular/material';
 import { TokenServiceService } from '../services/token-service.service';
+import { TransactionDetails } from '../services/types/transactionDetails';
 
 @Component({
   selector: 'app-view-transactions',
@@ -16,7 +17,7 @@ export class ViewTransactionsComponent implements OnInit {
   }
 
   getInfo() {
-    this.tokenService.viewTransactions({accountKey: "6ed40918-a2a2-42dd-b1c2-f727898c6d0f"}).subscribe(
+    this.tokenService.viewTransactions({ accountKey: localStorage.getItem('accountKey')}).subscribe(
       (response) => {
         this.newData = response;
         console.log(response);
