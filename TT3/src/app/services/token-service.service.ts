@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of , throwError } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse,  } from '@angular/common/http';
-import {  LoginDetails } from './types/loginDetails';
+import { LoginDetails } from './types/loginDetails';
 import { LoginResponse } from './types/loginResponse';
 import { ViewBalanceDetails } from './types/viewBalanceDetails';
 import { ViewBalanceResponse } from './types/viewBalanceResponse';
