@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   loginForm:FormGroup;
   loginDetails:LoginDetails;
   loginResponse:LoginResponse;
+  loggedIn=false;
+  savedDetails:any;
 
   constructor(private tokenService:TokenServiceService,private formBuilder:FormBuilder) { }
 
@@ -21,6 +23,10 @@ export class LoginComponent implements OnInit {
       username:[null,[Validators.required,Validators.minLength(4)]],
       password:[null,[Validators.required,Validators.minLength(6)]]
     })
+    if (localStorage.getItem("accountInfo")){
+      this.savedDetails=JSON.parse(localStorage.getItem("accountInfo"));
+      console.log(this.savedDetails);
+    }
   }
 
   get f(){
@@ -35,6 +41,8 @@ export class LoginComponent implements OnInit {
     this.tokenService.userLogin(this.loginDetails).subscribe(response=>{
       this.loginResponse=response;
       localStorage.setItem('accountKey',this.loginResponse.accountKey);
+      localStorage.setItem('loggedIn','true');
+      localStorage.setItem('accountInfo',JSON.stringify(response));
       location.reload();
     })
   }
