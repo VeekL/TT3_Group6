@@ -12,6 +12,8 @@ import { TokenServiceService } from './services/token-service.service';
 import { BuySellComponent } from './buy-sell/buy-sell.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
@@ -29,7 +31,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [TokenServiceService],
   bootstrap: [AppComponent]
