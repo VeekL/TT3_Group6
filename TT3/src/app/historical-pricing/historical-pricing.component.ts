@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenServiceService } from '../services/token-service.service';
 
 @Component({
   selector: 'app-historical-pricing',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoricalPricingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tokenService: TokenServiceService) { }
 
   ngOnInit() {
+    return this.tokenService.viewHistoricalPricing.subscribe(response => {
+      console.log(response);
+    })
   }
 
 }
