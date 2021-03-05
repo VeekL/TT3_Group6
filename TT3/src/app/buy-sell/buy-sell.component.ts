@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { TokenServiceService} from '../services/token-service.service';
 
 @Component({
@@ -10,6 +11,10 @@ export class BuySellComponent implements OnInit {
   constructor(private tokenService:TokenServiceService) { }
   accountKey:string;
   balance:any;
+  tradeForm:FormGroup;
+  //tradeDetails:tradeDetails;
+  //tradeResponse:tradeResponse;
+
 
   ngOnInit() {
     this.accountKey=localStorage.getItem('accountKey');

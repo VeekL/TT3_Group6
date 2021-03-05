@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
     })
     if (localStorage.getItem("accountInfo")){
       this.savedDetails=JSON.parse(localStorage.getItem("accountInfo"));
-      console.log(this.savedDetails);
     }
   }
 
