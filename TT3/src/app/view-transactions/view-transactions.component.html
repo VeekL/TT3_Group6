@@ -1,3 +1,23 @@
-<p>
-  view-transactions works!
-</p>
+<h1>
+  Transaction History
+</h1>
+<table>
+  <tr>
+    <th>Transaction ID</th>
+    <th>Timestamp</th>
+    <th>Asset Symbol</th>
+    <th>Order Type</th>
+    <th>Asset Price</th>
+    <th>Asset Amount</th>
+    <th>Cash Amount</th>
+  </tr>
+  <tr *ngFor="let transaction of newData">
+    <td>{{ transaction.transactionId }} </td>
+    <td>{{ transaction.timestamp*1000 | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
+    <td>{{ transaction.assetSymbol }}</td>
+    <td>{{ transaction.orderType }}</td>
+    <td>{{ transaction.assetPrice }}</td>
+    <td>{{ transaction.assetAmount }}</td>
+    <td>{{ transaction.cashAmount }}</td>
+  </tr>
+</table>
