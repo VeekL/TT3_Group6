@@ -37,20 +37,16 @@ sub: Subscription;
   {
     const source = interval(1000); //every 1 sec
     this.sub = source.subscribe(()=>
-    {this.getInfo()};
-    )
-
+    {this.getInfo()});
   };
 
   getInfo()
   {
     this.tokenService.viewPricing().subscribe((response)=>{
     this.currentPrice = response;
-    this.currentDate = Date(this.currentPrice.timestamp * 1000); 
-    };
+    this.currentDate = response.timestamp;
+    });
   }
-
-  
 }
 
 
