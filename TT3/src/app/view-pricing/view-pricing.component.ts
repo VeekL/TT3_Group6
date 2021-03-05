@@ -18,7 +18,6 @@ import { Observable, interval, Subscription} from 'rxjs';
 export class ViewPricingComponent implements OnInit {
 
 currentPrice:any;
-currentDate:any;
 testPrice:any;
 sub: Subscription;
   constructor(private tokenService:TokenServiceService)
@@ -35,16 +34,18 @@ sub: Subscription;
 
   updateInfo()
   {
-    const source = interval(1000); //every 1 sec
-    this.sub = source.subscribe(()=>
-    {this.getInfo()});
+    const source = interval(60000); //every 1 sec
+    this.sub = source.subscribe((response)=>
+    {response = this.getInfo();
+     console.log("here"};)
+     );
   };
 
   getInfo()
   {
     this.tokenService.viewPricing().subscribe((response)=>{
     this.currentPrice = response;
-    this.currentDate = response.timestamp;
+
     });
   }
 }
