@@ -16,6 +16,8 @@ export class BuySellComponent implements OnInit {
   buyForm:FormGroup;
   sellForm:FormGroup;
   tradeBody:BuyOrSellDetails;
+  tradeDetails=[];
+  newData:any;
 
   responseBody = {
     "accountKey": ""
@@ -36,22 +38,55 @@ export class BuySellComponent implements OnInit {
     }
     this.tokenService.viewBalance(this.responseBody).subscribe(balance=>{
       this.balance=balance;
-      console.log(this.balance);
     });
+    this.getTransactionHistory();
+  }
+
+  get fb(){
+    return this.buyForm.controls;
+  }
+
+  get fs(){
+    return this.sellForm.controls;
   }
 
   buy(){
     this.tradeBody={
       "accountKey":this.accountKey,
       "orderType":"BUY",
-      "assetAmount":1
+      "assetAmount":this.fb.buyAmount.value
     }
     this.tokenService.buyOrSell(this.tradeBody).subscribe((response)=>{
-      console.log(response);
+      console.log("Buy",response);
     })
+    this.getBalance();
+    this.getTransactionHistory();
   }
 
   sell(){
-    console.log('sell');
+    this.tradeBody={
+      "accountKey":this.accountKey,
+      "orderType":"SELL",
+      "assetAmount":this.fs.sellAmount.value
+    }
+    this.tokenService.buyOrSell(this.tradeBody).subscribe((response)=>{
+      console.log("Sell",response);
+    })
+    this.getBalance();
+    this.getTransactionHistory();
+  }
+
+  getBalance(){
+    this.tokenService.viewBalance(this.responseBody).subscribe(balance=>{
+      this.balance=balance;
+    });
+  }
+
+  getTransactionHistory() {
+    this.tokenService.viewTransactions({ accountKey: localStorage.getItem('accountKey')}).subscribe(
+      (response) => {
+        this.newData = response;
+      }
+    );
   }
 }
