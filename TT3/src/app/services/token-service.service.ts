@@ -16,7 +16,7 @@ import { BuyOrSellDetails } from './types/buyOrSellDetails';
 })
 export class TokenServiceService {
     
-  url='https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/';
+  url='https://cors-anywhere.herokuapp.com/https://849rs099m3.execute-api.ap-southeast-1.amazonaws.com/techtrek/';
 
   loginUrl=this.url+'/login'; //POST
   viewBalanceUrl= this.url+'/balance'; //POST

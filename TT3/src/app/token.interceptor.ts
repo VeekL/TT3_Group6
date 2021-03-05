@@ -14,6 +14,7 @@ export class TokenInterceptor implements HttpInterceptor {
         this.headersConfig['x-api-key'] = token;
       }
   
+      console.log(this.headersConfig);
       const request = req.clone({ setHeaders: this.headersConfig });
       return next.handle(request);
     }
