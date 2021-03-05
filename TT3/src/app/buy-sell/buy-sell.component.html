@@ -7,7 +7,7 @@
         <th>Last Updated</th>
       </tr>
       <tr>
-        <td>{{currentPrice?.assetSymbol}}</td>
+        <td><b>{{currentPrice?.assetSymbol}}</b></td>
         <td>{{currentPrice?.price}}</td>
         <td>{{currentPrice?.timestamp*1000 | date: 'dd/MM/yyyy hh:mm:ss' }} </td>
       </tr>
@@ -34,8 +34,8 @@
     </div>
     
     <div style="margin-top:20px" class="center">
-      <p>Asset Balance: {{balance?.assetBalance}} TTK</p>
-      <p>Cash Balance: ${{balance?.cashBalance}} </p>
+      <p><b>Asset Balance: </b>{{balance?.assetBalance}} TTK</p>
+      <p><b>Cash Balance: </b> ${{balance?.cashBalance}} </p>
     </div>
     
     <div *ngIf="tradeDetails">

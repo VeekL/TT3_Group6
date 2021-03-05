@@ -1,7 +1,9 @@
-<h2>View Pricing</h2>
-<div>
-    <p>assetSymbol:{{ currentPrice && currentPrice.assetSymbol}}</p>
-    <p>Price: {{ currentPrice && currentPrice.price}}</p>
-    <!-- <p>Timestamp: {{currentPrice.timestamp}}</p> -->
-    <p>{{currentDate*1000 | date: 'dd/MM/yyyy hh:mm:ss'}}</p>
-</div> 
+<div class="center">
+    <h2>View Pricing</h2>
+    <div>
+        <p><b>Ticker: </b>{{ currentPrice && currentPrice.assetSymbol}}</p>
+        <p><b>Price: </b>{{ currentPrice && currentPrice.price}}</p>
+        <!-- <p>Timestamp: {{currentPrice.timestamp}}</p> -->
+        <p><b>Last Updated: </b>{{currentDate*1000 | date: 'dd/MM/yyyy hh:mm:ss'}}</p>
+    </div> 
+</div>
