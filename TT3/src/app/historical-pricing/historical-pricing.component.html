@@ -7,9 +7,14 @@
     <td>Asset Symbol</td>
     <td>TimeStamp</td>
   </tr>
-  <tr *ngFor="let item of data">
+  <!-- <tr *ngFor="let item of data">
     <td>{{item.price}}</td>
     <td>{{item.assetSymbol}}</td>
     <td>{{item.timestamp*1000 | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
-  </tr>
+  </tr> -->
 </table>
+
+
+<div id='divchart'>
+  <canvas id='linechart'></canvas>
+</div>
