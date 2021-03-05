@@ -8,9 +8,11 @@ import { ViewBalanceComponent } from './view-balance/view-balance.component';
 import { ViewPricingComponent } from './view-pricing/view-pricing.component';
 import { HistoricalPricingComponent } from './historical-pricing/historical-pricing.component';
 import { ViewTransactionsComponent } from './view-transactions/view-transactions.component';
+import { TokenServiceService } from './services/token-service.service';
 import { BuySellComponent } from './buy-sell/buy-sell.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserinfoComponent } from './userinfo/userinfo.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,9 +28,10 @@ import { UserinfoComponent } from './userinfo/userinfo.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TokenServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

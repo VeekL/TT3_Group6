@@ -1,10 +1,8 @@
-<link rel="stylesheet" href="login.component.css">
+<!-- <link rel="stylesheet" href="login design.css"> -->
 
-<body>
-  
   <div class="grid">
 
-    <form action="test.php" method="POST" class="form login">
+    <form action="/action_page.php" method="POST" class="form login">
 	
       <div class="form_field">
 		<hr>
@@ -22,7 +20,8 @@
 	  <br>
 
       <div class="form_field">
-        <input type="submit" value="Sign In">
+		<button onclick="credentials()">Sign In</button>
+        <!-- <input type="submit" value="Sign In"> -->
       </div>
 	  
     </form>
@@ -31,4 +30,9 @@
 
   </div>
   
+  <script>
+	function credentials() {
+		document.getElementById("Username").value = Group6;
+		document.getElementById("Password").value = mnlBi9C5lHzPiMN;
+	}
 </body>
