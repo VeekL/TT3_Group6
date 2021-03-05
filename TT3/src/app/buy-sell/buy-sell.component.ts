@@ -12,8 +12,8 @@ export class BuySellComponent implements OnInit {
   accountKey:string;
   balance:any;
   tradeForm:FormGroup;
-  tradeDetails:tradeDetails;
-  tradeResponse:tradeResponse;
+  //tradeDetails:tradeDetails;
+  //tradeResponse:tradeResponse;
 
 
   ngOnInit() {
