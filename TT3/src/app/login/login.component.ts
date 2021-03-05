@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
     }
     this.tokenService.userLogin(this.loginDetails).subscribe(response=>{
       this.loginResponse=response;
+      localStorage.setItem('accountKey',this.loginResponse.accountKey);
+      location.reload();
     })
   }
 }
