@@ -33,7 +33,6 @@ export class TokenServiceService {
     return this.http.post<LoginResponse>(this.loginUrl, loginDetails, { headers: this.headers }); //login details, username,password, 
   }
 
-
   viewBalance(accountKey):Observable<ViewBalanceResponse>{
     return this.http.post<ViewBalanceResponse>(this.viewBalanceUrl,accountKey,{headers:this.headers}); //accountKey
   }
