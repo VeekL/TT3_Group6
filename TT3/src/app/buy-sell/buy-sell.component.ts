@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TokenServiceService} from '../services/token-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BuyOrSellDetails } from '../services/types/buyOrSellDetails';
+import { interval, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-buy-sell',
@@ -13,11 +14,15 @@ export class BuySellComponent implements OnInit {
   constructor(private tokenService:TokenServiceService,private formBuilder:FormBuilder) { }
   accountKey:string;
   balance:any;
+  currentPrice:any;
+  currentDate:any;
   buyForm:FormGroup;
   sellForm:FormGroup;
   tradeBody:BuyOrSellDetails;
   tradeDetails=[];
   newData:any;
+  sub: Subscription;
+
 
   responseBody = {
     "accountKey": ""
@@ -39,7 +44,9 @@ export class BuySellComponent implements OnInit {
     this.tokenService.viewBalance(this.responseBody).subscribe(balance=>{
       this.balance=balance;
     });
+    this.getInfo();
     this.getTransactionHistory();
+    this.updateInfo();
   }
 
   get fb(){
@@ -88,5 +95,20 @@ export class BuySellComponent implements OnInit {
         this.newData = response;
       }
     );
+  }
+
+  updateInfo()
+  {
+    const source = interval(10000); //every 10 sec
+    this.sub = source.subscribe(()=>
+    {this.getInfo()});
+  };
+
+  getInfo()
+  {
+    this.tokenService.viewPricing().subscribe((response)=>{
+    this.currentPrice = response;
+    this.currentDate = response.timestamp;
+    });
   }
 }

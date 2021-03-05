@@ -1,48 +1,62 @@
-<h1>Trade Assets</h1>
-
-<div class="Trade Assets">
-      
-  <form [formGroup]="buyForm" (ngSubmit)="buy()">
-    <h2>Buy</h2>
-    <input type="text" formControlName="buyAmount" class="form-control" placeholder="Buy Amount">
-    <br>
-    <button>Submit</button>
-  </form>
-
-  <form [formGroup]="sellForm" (ngSubmit)="sell()">
-    <h2>Sell</h2>
-    <input type="text" formControlName="sellAmount" class="form-control" placeholder="Sell Amount">
-    <br>
-
-    <button>Submit</button>
-  </form>
-</div>
-
-<div>
-  <p>Asset Balance: {{balance?.assetBalance}} TTK</p>
-  <p>Cash Balance: ${{balance?.cashBalance}} </p>
-</div>
-
-<div *ngIf="tradeDetails">
-  <h1>Transactions</h1>
-  <table>
+<div class="container">
+    <h1>Trade Assets</h1>
+    <div>
       <tr>
-        <th>Transaction ID</th>
-        <th>Timestamp</th>
         <th>Asset Symbol</th>
-        <th>Order Type</th>
-        <th>Asset Price</th>
-        <th>Asset Amount</th>
-        <th>Cash Amount</th>
+        <th>Price</th>
+        <th>Last Updated</th>
       </tr>
-      <tr *ngFor="let transaction of newData">
-        <td>{{ transaction.transactionId }} </td>
-        <td>{{ transaction.timestamp*1000 | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
-        <td>{{ transaction.assetSymbol }}</td>
-        <td>{{ transaction.orderType }}</td>
-        <td>{{ transaction.assetPrice }}</td>
-        <td>{{ transaction.assetAmount }}</td>
-        <td>{{ transaction.cashAmount }}</td>
+      <tr>
+        <td>{{currentPrice.assetSymbol}}</td>
+        <td>{{currentPrice.price}}</td>
+        <td>{{currentPrice.timestamp*1000 | date: 'dd/MM/yyyy hh:mm:ss' }} </td>
       </tr>
-    </table>
+    </div>
+    
+    <div class="Trade Assets">
+          
+      <form [formGroup]="buyForm" (ngSubmit)="buy()">
+        <h2>Buy</h2>
+        <input type="text" formControlName="buyAmount" class="form-control" placeholder="Buy Amount">
+        <br>
+        <button>Submit</button>
+      </form>
+    
+      <form [formGroup]="sellForm" (ngSubmit)="sell()">
+        <h2>Sell</h2>
+        <input type="text" formControlName="sellAmount" class="form-control" placeholder="Sell Amount">
+        <br>
+    
+        <button>Submit</button>
+      </form>
+    </div>
+    
+    <div>
+      <p>Asset Balance: {{balance?.assetBalance}} TTK</p>
+      <p>Cash Balance: ${{balance?.cashBalance}} </p>
+    </div>
+    
+    <div *ngIf="tradeDetails">
+      <h1>Transactions</h1>
+      <table>
+          <tr>
+            <th>Transaction ID</th>
+            <th>Timestamp</th>
+            <th>Asset Symbol</th>
+            <th>Order Type</th>
+            <th>Asset Price</th>
+            <th>Asset Amount</th>
+            <th>Cash Amount</th>
+          </tr>
+          <tr *ngFor="let transaction of newData">
+            <td>{{ transaction.transactionId }} </td>
+            <td>{{ transaction.timestamp*1000 | date: 'dd/MM/yyyy hh:mm:ss' }}</td>
+            <td>{{ transaction.assetSymbol }}</td>
+            <td>{{ transaction.orderType }}</td>
+            <td>{{ transaction.assetPrice }}</td>
+            <td>{{ transaction.assetAmount }}</td>
+            <td>{{ transaction.cashAmount }}</td>
+          </tr>
+        </table>
+    </div>
 </div>
