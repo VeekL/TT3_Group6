@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  loggedIn=false;
+  accountKey:string;
   constructor() { }
 
   ngOnInit() {
+    this.accountKey=localStorage.getItem('accountKey');
+    if(this.accountKey!==null){
+      this.loggedIn=true;
+    }
   }
-
 }

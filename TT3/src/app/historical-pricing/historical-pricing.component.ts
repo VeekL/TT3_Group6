@@ -10,7 +10,7 @@ import Chart from 'chart.js';
 
 
 export class HistoricalPricingComponent implements OnInit {
-
+  loading=false;
   data: any;
 
   price = [];
@@ -21,13 +21,18 @@ export class HistoricalPricingComponent implements OnInit {
   constructor(private tokenService: TokenServiceService) { }
 
   ngOnInit() {
+    this.loading=true;
     this.tokenService.viewHistoricalPricing().subscribe(
       response => {
         this.data = response;
+<<<<<<< HEAD
         console.log(this.data);
         this.price = this.data.price;
         this.assetsymbols = this.data.assetSymbol;
         this.timestamp = this.data.timestamp;
+=======
+        this.loading=false;
+>>>>>>> main
       }
     );
     this.lineChartMethod;

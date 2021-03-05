@@ -1,10 +1,9 @@
 <ul>
-  <li><a routerLink="/">Home</a></li>
-  <li><a routerLink="/login">Login</a></li>
-  <li><a routerLink="/userinfo">Profile</a></li>
-  <li><a routerLink="/viewbalance">View Balance</a></li>
+  <li *ngIf="!loggedIn"><a routerLink="/login">Login</a></li>
+  <li *ngIf="loggedIn"><a routerLink="/login">Profile</a></li>
+  <li *ngIf="loggedIn"><a routerLink="/viewbalance">View Balance</a></li>
   <li><a routerLink="/viewpricing">Prices</a></li>
   <li><a routerLink="/history">Historical Pricing</a></li>
-  <li><a routerLink="/buysell">Trade Asset</a></li>
-  <li><a routerLink="/viewtransactions">Transaction History</a></li>
+  <li *ngIf="loggedIn"><a routerLink="/buysell">Trade Asset</a></li>
+  <li *ngIf="loggedIn"><a routerLink="/viewtransactions">Transaction History</a></li>
 </ul>
