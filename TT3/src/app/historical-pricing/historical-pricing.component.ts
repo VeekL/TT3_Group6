@@ -10,42 +10,38 @@ import Chart from 'chart.js';
 
 
 export class HistoricalPricingComponent implements OnInit {
-  loading=false;
+  loading = false;
   data: any;
 
-  price = [];
-  assetsymbols = [];
-  timestamp = [];
+  priceArr = [];
+  assetsymbols: [];
+  timeStampArr = [];
   linechart = [];
 
   constructor(private tokenService: TokenServiceService) { }
 
   ngOnInit() {
-    this.loading=true;
+    this.loading = true;
     this.tokenService.viewHistoricalPricing().subscribe(
       response => {
         this.data = response;
-<<<<<<< HEAD
-        console.log(this.data);
-        this.price = this.data.price;
-        this.assetsymbols = this.data.assetSymbol;
-        this.timestamp = this.data.timestamp;
-=======
-        this.loading=false;
->>>>>>> main
+        this.loading = false;
+        for (var curPrice in this.data) {
+          var s = new Date(response[curPrice].timestamp * 1000).toLocaleDateString("en-US")
+          this.priceArr.push(response[curPrice].price);
+          this.timeStampArr.push(s);
+        }
+        console.log(response);
       }
     );
-    this.lineChartMethod;
-  }
-
-  // ngAfterViewInit() { this.lineChartMethod }
-
-  lineChartMethod() {
-    this.linechart = new Chart('linechart', {
+    this.linechart = new Chart('canvas', {
       type: 'line',
       data: {
-        labels: ['jan', 'feb', 'mar', 'april', 'may', 'june'],
-        data: [1, 2, 3, 4, 5, 6]
+        labels: this.timeStampArr,
+        datasets: [{
+          label: 'price',
+          data: this.priceArr
+        }]
       },
       options: {
         scales: {
@@ -58,5 +54,4 @@ export class HistoricalPricingComponent implements OnInit {
       }
     });
   }
-
 }
